@@ -212,13 +212,13 @@ class DialogMovieInfo(DialogVideoInfo):
 
     @ch.click(ID_BUTTON_PLAY_RESUME)
     def play_noresume_button(self, control_id):
-        self.exit_script()
+        self.exit()
         xbmc.executebuiltin("Dialog.Close(movieinformation)")
         kodijson.play_media("movie", self.info["dbid"], True)
 
     @ch.click(ID_BUTTON_PLAY_NORESUME)
     def play_resume_button(self, control_id):
-        self.exit_script()
+        self.exit()
         xbmc.executebuiltin("Dialog.Close(movieinformation)")
         kodijson.play_media("movie", self.info["dbid"], False)
 
