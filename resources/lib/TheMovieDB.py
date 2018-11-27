@@ -801,7 +801,7 @@ def extended_movie_info(movie_id=None, dbid=None, cache_days=14):
     releases = merge_with_cert_desc(handle_release_dates(info["release_dates"]["results"]), "movie")
     listitems = {"actors": handle_people(info["credits"]["cast"]),
                  "similar": handle_movies(info["similar"]["results"]),
-                 "lists": sort_lists(handle_lists(info["lists"]["results"])),
+                 "lists": handle_misc(response["lists"]["results"]) if "lists" in response else ,
                  "studios": handle_companies(info["production_companies"]),
                  "releases": releases,
                  "crew": handle_people(info["credits"]["crew"]).reduce(),
